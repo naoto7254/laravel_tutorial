@@ -7,10 +7,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('home');
-});
-Route::view('/home', 'home'); // 上の行とほぼ同じ事をしているが若干違う事をしている
+// Route::get('/home', function () {
+//     return view('home');
+// });
+// Route::view('/home', 'home'); // 上の行とほぼ同じ事をしているが若干違う事をしている
 // Route::redirect('/home', '/');
 
 Route::get('/about/{name}', function ($name) {
@@ -22,3 +22,5 @@ Route::get('user', [UserController::class, 'getUser']);
 Route::get('about/{name}', [UserController::class, 'aboutUser']);
 
 Route::get('admin-login', [UserController::class, 'adminLogin']);
+
+Route::get('user-home', [UserController::class, 'userHome']);
