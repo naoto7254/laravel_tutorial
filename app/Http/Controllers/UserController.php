@@ -9,7 +9,9 @@ class UserController extends Controller
 {
     function userHome()
     {
-        return view('home');
+        $name = "naoto";
+        $users = ['naoto', 'makoto', 'hiroshi'];
+        return view('home', ['name' => $name, 'users' => $users]);
     }
     function getUser()
     {
