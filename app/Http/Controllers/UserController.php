@@ -38,4 +38,17 @@ class UserController extends Controller
         // これでも呼び出せる
         echo 'これでも呼び出せる' . $request->input('city');
     }
+
+    function addUser2(Request $request)
+    {
+        // return $request;
+        print_r($request->skill);
+        echo '<br>';
+        echo $request->gender;
+        echo '<br>';
+        echo $request->age;
+        echo '<br>';
+        echo $request->city;
+        echo '<br>';
+    }
 }
