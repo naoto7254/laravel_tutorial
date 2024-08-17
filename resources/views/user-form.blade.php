@@ -15,27 +15,16 @@
     <form action="addUser" method="post">
         @csrf
         <div class="input-form">
-            <input type="text" placeholder="enter username" name="username">
+            <input type="text" placeholder="enter username" name="username" value="{{old('username')}}" class="{{ $errors->first('username') ? 'input-error' : '' }}">
             <span style="color: red">@error('username'){{$message}}@enderror</span>
         </div>
         <div class="input-form">
-            <input type="text" placeholder="enter city" name="city">
+            <input type="text" placeholder="enter city" name="city" value="{{old('city')}}" class="{{ $errors->first('city') ? 'input-error' :  ''}}">
             <span style="color: red">@error('city'){{$message}}@enderror</span>
         </div>
         <div class="input-form">
-            <input type="text" placeholder="enter email" name="email">
+            <input type="text" placeholder="enter email" name="email" value="{{old('email')}}" class="{{ $errors->first('email') ? 'input-error' :  ''}}">
             <span style="color: red">@error('email'){{$message}}@enderror</span>
-        </div>
-        <div>
-            <h4>User skills</h4>
-            <input type="checkbox" name="skill[]" id="php" value="php">
-            <label for="php">PHP</label>
-            <input type="checkbox" name="skill[]" id="java" value="Java">
-            <label for="java">Java</label>
-            <input type="checkbox" name="skill[]" id="node" value="Node">
-            <label for="node">Node</label>
-
-            <span style="color: red">@error('skill'){{$message}}@enderror</span>
         </div>
         <div class="input-form">
             <button>Add New User</button>
@@ -61,5 +50,10 @@
         margin: 10px;
         background-color: #fff;
         cursor: pointer;
+    }
+
+    .input-error{
+        border: 1px solid red;
+        color: red;
     }
 </style>

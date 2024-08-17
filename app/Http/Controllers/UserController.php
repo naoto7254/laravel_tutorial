@@ -32,7 +32,13 @@ class UserController extends Controller
             'username' => 'required | min:3 | max:15',
             'city' => 'required',
             'email' => 'required | email',
-            'skill' => 'required'
+        ], [
+            'username.required' => 'Username can not be empty',
+            'username.min' => 'Username min characters should be 3',
+            'username.max' => 'Username max characters limit is 15',
+            'city.required' => 'City can not be empty',
+            'email.required' => 'Email can not be empty',
+            'email.email' => 'This email is not valid',
         ]);
         return $request;
     }
