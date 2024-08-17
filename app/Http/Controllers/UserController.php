@@ -28,21 +28,19 @@ class UserController extends Controller
 
     function addUser(Request $request)
     {
-        echo 'User name is :' . $request->username;
-        echo '<br>';
-        echo $request->city;
-        echo '<br>';
-        echo $request->email;
-        echo '<br>';
-
-        // これでも呼び出せる
-        echo 'これでも呼び出せる' . $request->input('city');
+        $request->validate([
+            'username' => 'required | min:3 | max:15',
+            'city' => 'required',
+            'email' => 'required | email',
+            'skill' => 'required'
+        ]);
+        return $request;
     }
 
     function addUser2(Request $request)
     {
         // return $request;
-        print_r($request->skill);
+        echo $request->skill;
         echo '<br>';
         echo $request->gender;
         echo '<br>';
