@@ -25,4 +25,17 @@ class UserController extends Controller
             return 'View not found';
         }
     }
+
+    function addUser(Request $request)
+    {
+        echo 'User name is :' . $request->username;
+        echo '<br>';
+        echo $request->city;
+        echo '<br>';
+        echo $request->email;
+        echo '<br>';
+
+        // これでも呼び出せる
+        echo 'これでも呼び出せる' . $request->input('city');
+    }
 }
