@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HomeController2;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,5 +26,17 @@ Route::get('about2/{name}', function ($name) {
 Route::view('home3/profile/user', 'home3')->name('hm');
 Route::view('home3/username/{name}', 'home3')->name('user2');
 
-Route::get('show', [HomeController::class, 'show']);
-Route::get('show', [HomeController::class, 'user3']);
+// Route::get('show', [HomeController::class, 'show']);
+// Route::get('show', [HomeController::class, 'user3']);
+
+Route::prefix('student')->group(function () {
+    Route::view('/home4', 'home4');
+    Route::get('/show', [HomeController2::class, 'show']);
+    Route::get('/add', [HomeController2::class, 'add']);
+});
+
+Route::prefix('student/japan')->group(function () {
+    Route::view('/home4', 'home4');
+    Route::get('/show', [HomeController2::class, 'show']);
+    Route::get('/add', [HomeController2::class, 'add']);
+});
