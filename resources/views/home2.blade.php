@@ -15,3 +15,5 @@
 </div>
 
 <a href="/laravel_project/blog/public/about2">About Page</a>
+
+<a href="{{route('hm')}}">Go to home3</a>

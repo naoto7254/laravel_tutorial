@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,3 +21,9 @@ Route::view('about2', 'about2');
 Route::get('about2/{name}', function ($name) {
     return view('about2', ['name' => $name]);
 });
+
+Route::view('home3/profile/user', 'home3')->name('hm');
+Route::view('home3/username/{name}', 'home3')->name('user2');
+
+Route::get('show', [HomeController::class, 'show']);
+Route::get('show', [HomeController::class, 'user3']);
